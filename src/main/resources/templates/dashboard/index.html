@@ -1,168 +1,402 @@
 <!DOCTYPE html>
 <html lang="pt-BR"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Lumina</title>
+
+    <title>Painel | Lumina</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0f172a] text-white min-h-screen">
+
+<body class="bg-[#0b1120] text-white min-h-screen overflow-x-hidden">
+
+<!-- Background -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+
+    <div class="absolute top-[-250px] left-[-150px]
+                w-[600px] h-[600px]
+                bg-indigo-500 opacity-20
+                blur-[160px] rounded-full">
+    </div>
+
+    <div class="absolute bottom-[-250px] right-[-150px]
+                w-[600px] h-[600px]
+                bg-purple-600 opacity-20
+                blur-[160px] rounded-full">
+    </div>
+
+</div>
 
 <div class="flex">
 
-    <!-- Sidebar -->
-    <aside class="w-64 h-screen bg-[#111827] border-r border-slate-800 p-6">
+    <!-- SIDEBAR -->
+    <aside class="w-72 min-h-screen
+                  bg-[#111827]/80
+                  backdrop-blur
+                  border-r border-slate-800">
 
-        <h1 class="text-3xl font-bold text-indigo-400 mb-10">
-            Lumina
-        </h1>
+        <div class="p-8">
 
-        <nav class="space-y-3">
+            <div class="flex items-center gap-3">
 
-            <a href="#"
-               class="flex items-center gap-3 p-3 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 transition">
-                📢 Avisos
-            </a>
+                <div class="w-12 h-12
+                            rounded-2xl
+                            bg-indigo-500
+                            flex items-center justify-center
+                            font-bold text-xl">
 
-            <a href="#"
-               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-                📅 Calendário
-            </a>
+                    L
 
-            <a href="#"
-               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-                👥 Monitoria
-            </a>
+                </div>
 
-            <a href="#"
-               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-                ❓ Fórum
-            </a>
+                <div>
 
-            <a href="#"
-               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-                🏆 Ranking
-            </a>
+                    <h1 class="text-2xl font-bold text-indigo-400">
+                        Lumina
+                    </h1>
 
-        </nav>
+                    <p class="text-xs text-slate-500">
+                        Plataforma Escolar
+                    </p>
 
-    </aside>
+                </div>
 
-    <!-- Main -->
-    <main class="flex-1 p-8">
-
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-8">
-
-            <div>
-                <h2 class="text-4xl font-bold">
-                    Dashboard
-                </h2>
-
-                <p class="text-slate-400 mt-2">
-                    Bem-vindo ao Lumina 🚀
-                </p>
             </div>
 
-            <div class="bg-slate-800 px-5 py-3 rounded-2xl border border-slate-700">
-                <p class="text-sm text-slate-400">
-                    Usuário
-                </p>
+            <div class="mt-12 space-y-3">
 
-                <h3 class="font-semibold">
-                    Raul Letch
-                </h3>
+                <a href="#"
+                   class="flex items-center gap-3
+                          bg-indigo-500/15
+                          border border-indigo-500/20
+                          text-indigo-300
+                          p-4 rounded-2xl">
+
+                    🏠 Dashboard
+
+                </a>
+
+                <a href="#"
+                   class="flex items-center gap-3
+                          hover:bg-slate-800
+                          p-4 rounded-2xl transition">
+
+                    📢 Avisos
+
+                </a>
+
+                <a href="#"
+                   class="flex items-center gap-3
+                          hover:bg-slate-800
+                          p-4 rounded-2xl transition">
+
+                    📅 Calendário
+
+                </a>
+
+                <a href="#"
+                   class="flex items-center gap-3
+                          hover:bg-slate-800
+                          p-4 rounded-2xl transition">
+
+                    👥 Monitorias
+
+                </a>
+
+                <a href="#"
+                   class="flex items-center gap-3
+                          hover:bg-slate-800
+                          p-4 rounded-2xl transition">
+
+                    ❓ Fórum
+
+                </a>
+
+                <a href="#"
+                   class="flex items-center gap-3
+                          hover:bg-slate-800
+                          p-4 rounded-2xl transition">
+
+                    🏆 Ranking
+
+                </a>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-800">
+
+                <form th:action="@{/logout}" method="post">
+
+                    <button type="submit"
+                            class="w-full flex items-center gap-3
+                       p-4 rounded-2xl
+                       bg-red-500/10
+                       border border-red-500/20
+                       text-red-300
+                       hover:bg-red-500/20
+                       transition">
+
+                        🚪 Sair da Conta
+
+                    </button>
+
+                </form>
+
             </div>
 
         </div>
 
-        <!-- Cards -->
-        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+    </aside>
 
-            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
-                <p class="text-slate-400 text-sm">
-                    Avisos Ativos
+    <!-- MAIN -->
+    <main class="flex-1 p-10">
+
+        <!-- HEADER -->
+        <div class="flex flex-col lg:flex-row
+                    justify-between gap-6
+                    mb-10">
+
+            <div>
+
+                <span class="inline-flex
+                             bg-indigo-500/10
+                             border border-indigo-500/20
+                             text-indigo-300
+                             px-4 py-2
+                             rounded-full text-sm">
+
+                    ✨ Área do Usuário
+
+                </span>
+
+                <h1 class="text-5xl font-bold mt-5">
+
+                    Olá,
+
+                    <span class="text-indigo-400"
+                          th:text="${usuario.nome}">
+                        Usuário
+                    </span>
+
+                </h1>
+
+                <p class="text-slate-400 mt-3 text-lg">
+                    Bem-vindo de volta ao Lumina.
                 </p>
 
-                <h2 class="text-4xl font-bold mt-2">
-                    12
-                </h2>
             </div>
 
-            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
-                <p class="text-slate-400 text-sm">
-                    Eventos
-                </p>
+            <!-- PERFIL -->
+            <div class="bg-[#111827]/90
+                        border border-slate-800
+                        rounded-3xl
+                        p-6 min-w-[320px]">
 
-                <h2 class="text-4xl font-bold mt-2">
-                    5
+                <h2 class="font-bold text-xl mb-5">
+                    Seu Perfil
                 </h2>
+
+                <div class="space-y-3">
+
+                    <div>
+
+                        <p class="text-slate-500 text-sm">
+                            Nome
+                        </p>
+
+                        <p th:text="${usuario.nome}">
+                            Nome
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-slate-500 text-sm">
+                            Email
+                        </p>
+
+                        <p th:text="${usuario.email}">
+                            email@email.com
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-slate-500 text-sm">
+                            Cargo
+                        </p>
+
+                        <p th:text="${usuario.role}">
+                            ALUNO
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-slate-500 text-sm">
+                            Desde
+                        </p>
+
+                        <p th:text="${usuario.dataCriacao}">
+                            2026-01-01
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
-                <p class="text-slate-400 text-sm">
-                    Dúvidas Respondidas
-                </p>
+        </div>
 
-                <h2 class="text-4xl font-bold mt-2">
-                    28
-                </h2>
-            </div>
+        <!-- STATS -->
+        <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
 
-            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
-                <p class="text-slate-400 text-sm">
+            <div class="bg-[#111827]
+                        border border-slate-800
+                        rounded-3xl p-6">
+
+                <p class="text-slate-400">
                     XP Escolar
                 </p>
 
-                <h2 class="text-4xl font-bold mt-2 text-indigo-400">
-                    840
+                <h2 class="text-4xl font-bold
+                           text-indigo-400 mt-3">
+
+                    0
+
                 </h2>
+
+            </div>
+
+            <div class="bg-[#111827]
+                        border border-slate-800
+                        rounded-3xl p-6">
+
+                <p class="text-slate-400">
+                    Avisos
+                </p>
+
+                <h2 class="text-4xl font-bold mt-3">
+                    0
+                </h2>
+
+            </div>
+
+            <div class="bg-[#111827]
+                        border border-slate-800
+                        rounded-3xl p-6">
+
+                <p class="text-slate-400">
+                    Eventos
+                </p>
+
+                <h2 class="text-4xl font-bold mt-3">
+                    0
+                </h2>
+
+            </div>
+
+            <div class="bg-[#111827]
+                        border border-slate-800
+                        rounded-3xl p-6">
+
+                <p class="text-slate-400">
+                    Conquistas
+                </p>
+
+                <h2 class="text-4xl font-bold mt-3">
+                    0
+                </h2>
+
             </div>
 
         </section>
 
-        <!-- Avisos -->
-        <section class="bg-[#111827] rounded-2xl border border-slate-800 p-6">
+        <!-- GRID -->
+        <div class="grid xl:grid-cols-2 gap-8">
 
-            <div class="flex justify-between items-center mb-6">
+            <!-- AVISOS -->
+            <section class="bg-[#111827]
+                            border border-slate-800
+                            rounded-3xl p-8">
 
-                <h2 class="text-2xl font-bold">
-                    Avisos Recentes
+                <div class="flex justify-between items-center mb-6">
+
+                    <h2 class="text-2xl font-bold">
+                        📢 Avisos Recentes
+                    </h2>
+
+                    <button class="bg-indigo-500
+                                   hover:bg-indigo-600
+                                   transition
+                                   px-4 py-2
+                                   rounded-xl">
+
+                        Novo
+
+                    </button>
+
+                </div>
+
+                <div class="space-y-4">
+
+                    <div class="bg-slate-900
+                                border border-slate-800
+                                rounded-2xl p-5">
+
+                        <h3 class="font-semibold">
+                            Nenhum aviso disponível
+                        </h3>
+
+                        <p class="text-slate-400 mt-2">
+                            Os avisos aparecerão aqui.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AÇÕES -->
+            <section class="bg-[#111827]
+                            border border-slate-800
+                            rounded-3xl p-8">
+
+                <h2 class="text-2xl font-bold mb-6">
+                    🚀 Acesso Rápido
                 </h2>
 
-                <button class="bg-indigo-500 hover:bg-indigo-600 transition px-5 py-2 rounded-xl font-semibold">
-                    Novo Aviso
-                </button>
+                <div class="grid grid-cols-2 gap-4">
 
-            </div>
+                    <button class="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:border-indigo-500 transition">
+                        📢 Avisos
+                    </button>
 
-            <div class="space-y-4">
+                    <button class="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:border-indigo-500 transition">
+                        📅 Eventos
+                    </button>
 
-                <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-                    <h3 class="font-bold text-lg">
-                        Prova de Matemática
-                    </h3>
+                    <button class="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:border-indigo-500 transition">
+                        👥 Monitoria
+                    </button>
 
-                    <p class="text-slate-400 mt-1">
-                        A prova será realizada na sexta-feira às 10h.
-                    </p>
+                    <button class="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:border-indigo-500 transition">
+                        ❓ Fórum
+                    </button>
+
                 </div>
 
-                <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-                    <h3 class="font-bold text-lg">
-                        Feira Tecnológica
-                    </h3>
+            </section>
 
-                    <p class="text-slate-400 mt-1">
-                        Inscrições abertas para equipes até o final do mês.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
+        </div>
 
     </main>
 

@@ -78,6 +78,28 @@
 
             </p>
 
+            <div th:if="${param.logout}"
+                 class="mb-6 p-4 rounded-2xl
+            bg-emerald-500/10
+            border border-emerald-500/20
+            text-emerald-300">
+
+                ✅ Você saiu da sua conta com sucesso.
+
+            </div>
+
+            <!-- Login inválido -->
+            <div th:if="${param.error}"
+                 class="mt-6 p-4 rounded-2xl
+            bg-red-500/10
+            border border-red-500/20
+            text-red-300
+            animate-pulse">
+
+                ❌ E-mail ou senha inválidos.
+
+            </div>
+
             <form method="post"
                   action="/login"
                   class="space-y-5 mt-10">
