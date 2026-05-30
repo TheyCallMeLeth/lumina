@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Avisos | Lumina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1120] text-white min-h-screen overflow-x-hidden">
+
+<!-- BACKGROUND -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+
+    <div class="absolute top-[-200px] left-[-150px] w-[500px] h-[500px] bg-indigo-500 opacity-20 blur-[160px] rounded-full"></div>
+
+    <div class="absolute bottom-[-200px] right-[-150px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[160px] rounded-full"></div>
+
+</div>
+
+<div class="flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-72 min-h-screen bg-[#111827]/80 backdrop-blur border-r border-slate-800">
+
+        <div class="p-8">
+
+            <div class="flex items-center gap-3">
+
+                <div class="w-12 h-12 rounded-2xl bg-indigo-500 flex items-center justify-center font-bold text-xl">
+                    L
+                </div>
+
+                <div>
+                    <h1 class="text-2xl font-bold text-indigo-400">Lumina</h1>
+                    <p class="text-xs text-slate-500">Plataforma Escolar</p>
+                </div>
+
+            </div>
+
+            <!-- MENU -->
+            <div class="mt-8 lg:mt-12 grid grid-cols-2 lg:grid-cols-1 gap-3 lg:space-y-3 lg:space-x-0">
+
+                <a href="/dashboard"
+                   class="flex items-center gap-3 bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 p-3 lg:p-4 rounded-2xl">
+                    🏠 Dashboard
+                </a>
+
+                <a href="/avisos"
+                   class="flex items-center gap-3 hover:bg-slate-800 p-3 lg:p-4 rounded-2xl transition">
+                    📢 Avisos
+                </a>
+
+                <a href="/calendario"
+                   class="flex items-center gap-3 hover:bg-slate-800 p-3 lg:p-4 rounded-2xl transition">
+                    📅 Calendário
+                </a>
+
+                <a href="/monitorias"
+                   class="flex items-center gap-3 hover:bg-slate-800 p-3 lg:p-4 rounded-2xl transition">
+                    👥 Monitorias
+                </a>
+
+                <a href="/forum"
+                   class="flex items-center gap-3 hover:bg-slate-800 p-3 lg:p-4 rounded-2xl transition">
+                    ❓ Fórum
+                </a>
+
+                <a href="/ranking"
+                   class="flex items-center gap-3 hover:bg-slate-800 p-3 lg:p-4 rounded-2xl transition">
+                    🏆 Ranking
+                </a>
+
+            </div>
+
+            <!-- LOGOUT -->
+            <div class="mt-8 lg:mt-10 pt-4 border-t border-slate-800">
+
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit"
+                            class="w-full flex items-center justify-center lg:justify-start gap-3
+                                   p-3 lg:p-4 rounded-2xl
+                                   bg-red-500/10 border border-red-500/20
+                                   text-red-300 hover:bg-red-500/20 transition">
+                        🚪 Sair
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-10">
+
+        <!-- HEADER -->
+        <div class="mb-10">
+
+            <h1 class="text-4xl font-bold">
+                📢 Feed de Avisos
+            </h1>
+
+            <p class="text-slate-400 mt-3">
+                Avisos publicados pela escola em tempo real.
+            </p>
+
+        </div>
+
+        <!-- FEED -->
+        <div class="space-y-6">
+
+            <!-- LISTA REAL DO BANCO -->
+            <div th:each="aviso : ${avisos}"
+                 class="bg-[#111827] border border-slate-800 rounded-3xl p-6 hover:border-indigo-500 transition">
+
+                <div class="flex justify-between items-start">
+
+                    <div>
+
+                        <h2 class="text-xl font-bold"
+                            th:text="${aviso.titulo}">
+                            Título
+                        </h2>
+
+                        <p class="text-slate-400 mt-2"
+                           th:text="${aviso.descricao}">
+                            Descrição
+                        </p>
+
+                    </div>
+
+                    <!-- PRIORIDADE -->
+                    <span class="text-xs px-3 py-1 rounded-full border">
+
+                        <span th:text="${aviso.prioridade}">PRIORIDADE</span>
+
+                    </span>
+
+                </div>
+
+                <!-- INFO -->
+                <div class="flex justify-between items-center mt-6 text-sm text-slate-500">
+
+                    <span th:text="${aviso.criadoPor.nome}">
+                        Autor
+                    </span>
+
+                    <span th:text="${aviso.dataCriacao}">
+                        Data
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div th:if="${#lists.isEmpty(avisos)}"
+                 class="bg-[#111827] border border-slate-800 rounded-3xl p-10 text-center">
+
+                <p class="text-2xl font-bold text-slate-300">
+                    Nenhum aviso encontrado
+                </p>
+
+                <p class="text-slate-500 mt-2">
+                    Quando novos avisos forem criados, aparecerão aqui.
+                </p>
+
+            </div>
+
+            <!-- FAB: Novo Aviso -->
+            <a href="/avisos/novo"
+               class="fixed bottom-8 right-8
+          w-16 h-16
+          rounded-full
+          bg-gradient-to-br from-indigo-500 to-purple-600
+          flex items-center justify-center
+          text-white text-3xl font-bold
+          shadow-lg shadow-indigo-500/30
+          hover:scale-110 hover:shadow-purple-500/40
+          transition-all duration-300">
+
+                +
+
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

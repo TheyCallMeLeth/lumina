@@ -1,6 +1,7 @@
 package br.com.lumina.domain.usuario;
 
 import br.com.lumina.domain.Role;
+import br.com.lumina.domain.aviso.Aviso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -26,4 +28,7 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Role role;
     private LocalDate dataCriacao;
+
+    @OneToMany(mappedBy = "criadoPor")
+    private List<Aviso> avisos;
 }
