@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar Conta | Lumina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1120] text-white min-h-screen overflow-x-hidden">
+
+<!-- Background Effects -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+
+    <div class="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-indigo-500 opacity-20 blur-[140px] rounded-full"></div>
+
+    <div class="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[140px] rounded-full"></div>
+
+</div>
+
+<!-- Navbar -->
+<header class="w-full border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a href="/" class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-2xl bg-indigo-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-500/30">
+                L
+            </div>
+
+            <div>
+                <h1 class="text-2xl font-bold text-indigo-400">
+                    Lumina
+                </h1>
+
+                <p class="text-xs text-slate-500">
+                    Plataforma Escolar
+                </p>
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- Main -->
+<main class="max-w-7xl mx-auto px-6 py-20">
+
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- Left -->
+        <div>
+
+            <span class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-5 py-2 rounded-full text-sm font-medium">
+                ✨ Crie sua conta
+            </span>
+
+            <h1 class="text-5xl md:text-6xl font-bold mt-8">
+
+                Comece sua jornada no
+                <span class="text-indigo-400">
+                    Lumina
+                </span>
+
+            </h1>
+
+            <p class="text-slate-400 text-lg mt-8 leading-relaxed max-w-xl">
+
+                Junte-se à plataforma que conecta estudantes,
+                professores e coordenação em um único ambiente
+                moderno, colaborativo e inteligente.
+
+            </p>
+
+            <div th:if="${erro}"
+                 class="mt-6 flex items-start gap-4 p-5 rounded-2xl
+            bg-gradient-to-r from-red-500/10 to-pink-500/10
+            border border-red-500/20
+            backdrop-blur
+            shadow-lg shadow-red-500/10
+            animate-pulse">
+
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl
+                bg-red-500/15
+                border border-red-500/20
+                flex items-center justify-center">
+
+                    <span class="text-xl">⚠️</span>
+
+                </div>
+
+                <div>
+
+                    <h3 class="text-red-300 font-semibold">
+                        Não foi possível criar sua conta
+                    </h3>
+
+                    <p class="text-red-200/90 mt-1"
+                       th:text="${erro}">
+                    </p>
+
+                </div>
+
+            </div>
+
+            <form method="post"
+                  action="/register"
+                  class="space-y-5 mt-10">
+
+                <div>
+
+                    <label class="block mb-2 text-slate-300">
+                        Nome Completo
+                    </label>
+
+                    <input
+                            type="text"
+                            name="nomeCompleto"
+                            required
+                            class="w-full bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 focus:border-indigo-500 focus:outline-none transition"
+                            placeholder="Seu nome completo">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 text-slate-300">
+                        E-mail
+                    </label>
+
+                    <input
+                            type="email"
+                            name="email"
+                            required
+
+                            class="w-full bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 focus:border-indigo-500 focus:outline-none transition"
+
+                            placeholder="seuemail@exemplo.com">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 text-slate-300">
+                        Senha
+                    </label>
+
+                    <input
+                            type="password"
+                            name="senha"
+                            required
+
+                            class="w-full bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 focus:border-indigo-500 focus:outline-none transition"
+
+                            placeholder="********">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 text-slate-300">
+                        Confirmar Senha
+                    </label>
+
+                    <input
+                            type="password"
+                            name="confirmarSenha"
+                            required
+
+                            class="w-full bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 focus:border-indigo-500 focus:outline-none transition"
+
+                            placeholder="********">
+
+                </div>
+
+                <button
+                        type="submit"
+
+                        class="w-full bg-indigo-500 hover:bg-indigo-600 transition rounded-2xl py-4 font-semibold text-lg shadow-lg shadow-indigo-500/20">
+
+                    Criar Conta
+
+                </button>
+
+            </form>
+
+            <p class="mt-8 text-slate-400">
+
+                Já possui uma conta?
+
+                <a href="/login"
+                   class="text-indigo-400 font-semibold hover:text-indigo-300 transition">
+
+                    Entrar
+
+                </a>
+
+            </p>
+
+        </div>
+
+        <!-- Right -->
+        <div>
+
+            <div class="bg-[#111827]/90 backdrop-blur border border-slate-800 rounded-3xl p-8 shadow-2xl">
+
+                <div class="flex items-center justify-between mb-8">
+
+                    <h2 class="text-2xl font-bold">
+                        Por que usar o Lumina?
+                    </h2>
+
+                    <div class="flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-xl border border-indigo-500/20">
+
+                        🚀 Plataforma Moderna
+
+                    </div>
+
+                </div>
+
+                <div class="space-y-4">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        📢 Receba informações oficiais da escola em tempo real
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        👥 Participe de monitorias e colabore com outros alunos
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        📅 Organize sua rotina através do calendário escolar
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🏆 Ganhe conquistas e acompanhe sua participação
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        💡 Tire dúvidas e participe da comunidade escolar
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
+
+<script>
+    setTimeout(() => {
+        const alerta = document.getElementById('alerta-erro');
+        if (alerta) {
+            alerta.style.opacity = '0';
+            alerta.style.transition = '0.5s';
+        }
+    }, 5000);
+</script>

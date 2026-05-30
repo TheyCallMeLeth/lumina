@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Lumina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] text-white min-h-screen">
+
+<div class="flex">
+
+    <!-- Sidebar -->
+    <aside class="w-64 h-screen bg-[#111827] border-r border-slate-800 p-6">
+
+        <h1 class="text-3xl font-bold text-indigo-400 mb-10">
+            Lumina
+        </h1>
+
+        <nav class="space-y-3">
+
+            <a href="#"
+               class="flex items-center gap-3 p-3 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 transition">
+                📢 Avisos
+            </a>
+
+            <a href="#"
+               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+                📅 Calendário
+            </a>
+
+            <a href="#"
+               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+                👥 Monitoria
+            </a>
+
+            <a href="#"
+               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+                ❓ Fórum
+            </a>
+
+            <a href="#"
+               class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+                🏆 Ranking
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-8">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+
+            <div>
+                <h2 class="text-4xl font-bold">
+                    Dashboard
+                </h2>
+
+                <p class="text-slate-400 mt-2">
+                    Bem-vindo ao Lumina 🚀
+                </p>
+            </div>
+
+            <div class="bg-slate-800 px-5 py-3 rounded-2xl border border-slate-700">
+                <p class="text-sm text-slate-400">
+                    Usuário
+                </p>
+
+                <h3 class="font-semibold">
+                    Raul Letch
+                </h3>
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+
+            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
+                <p class="text-slate-400 text-sm">
+                    Avisos Ativos
+                </p>
+
+                <h2 class="text-4xl font-bold mt-2">
+                    12
+                </h2>
+            </div>
+
+            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
+                <p class="text-slate-400 text-sm">
+                    Eventos
+                </p>
+
+                <h2 class="text-4xl font-bold mt-2">
+                    5
+                </h2>
+            </div>
+
+            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
+                <p class="text-slate-400 text-sm">
+                    Dúvidas Respondidas
+                </p>
+
+                <h2 class="text-4xl font-bold mt-2">
+                    28
+                </h2>
+            </div>
+
+            <div class="bg-[#111827] p-6 rounded-2xl border border-slate-800">
+                <p class="text-slate-400 text-sm">
+                    XP Escolar
+                </p>
+
+                <h2 class="text-4xl font-bold mt-2 text-indigo-400">
+                    840
+                </h2>
+            </div>
+
+        </section>
+
+        <!-- Avisos -->
+        <section class="bg-[#111827] rounded-2xl border border-slate-800 p-6">
+
+            <div class="flex justify-between items-center mb-6">
+
+                <h2 class="text-2xl font-bold">
+                    Avisos Recentes
+                </h2>
+
+                <button class="bg-indigo-500 hover:bg-indigo-600 transition px-5 py-2 rounded-xl font-semibold">
+                    Novo Aviso
+                </button>
+
+            </div>
+
+            <div class="space-y-4">
+
+                <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
+                    <h3 class="font-bold text-lg">
+                        Prova de Matemática
+                    </h3>
+
+                    <p class="text-slate-400 mt-1">
+                        A prova será realizada na sexta-feira às 10h.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
+                    <h3 class="font-bold text-lg">
+                        Feira Tecnológica
+                    </h3>
+
+                    <p class="text-slate-400 mt-1">
+                        Inscrições abertas para equipes até o final do mês.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

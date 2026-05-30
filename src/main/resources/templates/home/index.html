@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lumina | Plataforma Escolar</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1120] text-white overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+<!-- Background Effects -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+
+    <div class="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-indigo-500 opacity-20 blur-[140px] rounded-full">
+    </div>
+
+    <div class="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[140px] rounded-full">
+    </div>
+
+</div>
+
+<!-- Navbar -->
+<header class="w-full border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur sticky top-0 z-50">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-2xl bg-indigo-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-500/30">
+                L
+            </div>
+
+            <div>
+                <h1 class="text-2xl font-bold text-indigo-400">
+                    Lumina
+                </h1>
+
+                <p class="text-xs text-slate-500">
+                    Plataforma Escolar
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-slate-300 font-medium">
+
+            <a href="#features"
+               class="hover:text-white transition">
+                Funcionalidades
+            </a>
+
+            <a href="#about"
+               class="hover:text-white transition">
+                Sobre
+            </a>
+
+            <a href="#impact"
+               class="hover:text-white transition">
+                Impacto
+            </a>
+
+        </nav>
+
+        <!-- Buttons -->
+        <div class="flex items-center gap-3">
+
+            <a href="/register"
+               class="px-5 py-2 rounded-xl border border-slate-700 hover:bg-slate-800 transition">
+                Registrar
+            </a>
+
+            <a href="/login"
+               class="px-5 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 transition font-semibold shadow-lg shadow-indigo-500/20">
+                Entrar
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Hero -->
+<section class="relative py-28 px-6">
+
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- Left -->
+        <div>
+
+            <span class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-5 py-2 rounded-full text-sm font-medium">
+                ✨ Plataforma de Integração Escolar
+            </span>
+
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mt-8">
+
+                Transformando a
+                <span class="text-indigo-400">
+                    experiência escolar
+                </span>
+                através da tecnologia.
+
+            </h1>
+
+            <p class="text-slate-400 text-lg mt-8 leading-relaxed max-w-2xl">
+
+                O Lumina conecta estudantes, professores e coordenação
+                em um único ambiente moderno, colaborativo e inteligente,
+                centralizando comunicação, monitoria, eventos e participação escolar.
+
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-wrap gap-4 mt-10">
+
+                <a href="/login"
+                   class="bg-indigo-500 hover:bg-indigo-600 transition px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/30">
+                    Acessar Plataforma
+                </a>
+
+                <a href="#features"
+                   class="border border-slate-700 hover:bg-slate-800 transition px-8 py-4 rounded-2xl font-semibold text-lg">
+                    Explorar Recursos
+                </a>
+
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-10 mt-14">
+
+                <div>
+                    <h2 class="text-4xl font-bold text-indigo-400">
+                        +100%
+                    </h2>
+
+                    <p class="text-slate-400 mt-2">
+                        Comunicação centralizada
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold text-indigo-400">
+                        +Colaboração
+                    </h2>
+
+                    <p class="text-slate-400 mt-2">
+                        Integração entre estudantes
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold text-indigo-400">
+                        +Organização
+                    </h2>
+
+                    <p class="text-slate-400 mt-2">
+                        Ambiente escolar moderno
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+        <div class="relative flex justify-center">
+
+            <!-- Glow -->
+            <div class="absolute inset-0 bg-indigo-500 blur-[120px] opacity-20 rounded-full">
+            </div>
+
+            <!-- Dashboard Preview -->
+            <div class="relative w-full max-w-xl bg-[#111827]/90 backdrop-blur border border-slate-800 rounded-3xl p-8 shadow-2xl">
+
+                <!-- Top -->
+                <div class="flex items-center justify-between mb-8">
+
+                    <div>
+                        <h2 class="text-2xl font-bold">
+                            Lumina Dashboard
+                        </h2>
+
+                        <p class="text-slate-400 mt-1">
+                            Plataforma escolar integrada
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-4 py-2 rounded-xl border border-emerald-500/20">
+
+                        <div class="w-2 h-2 rounded-full bg-emerald-400">
+                        </div>
+
+                        Sistema Online
+
+                    </div>
+
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+
+                        <p class="text-slate-400 text-sm">
+                            Módulos Integrados
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2 text-indigo-400">
+                            6+
+                        </h3>
+
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+
+                        <p class="text-slate-400 text-sm">
+                            Recursos do Sistema
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2 text-indigo-400">
+                            Completo
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <!-- Modules -->
+                <div class="space-y-4">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex items-center justify-between">
+
+                        <div>
+
+                            <h3 class="font-semibold text-lg">
+                                Comunicação Escolar
+                            </h3>
+
+                            <p class="text-slate-400 text-sm mt-1">
+                                Centralização de informações e avisos.
+                            </p>
+
+                        </div>
+
+                        <span class="text-2xl">
+                            📢
+                        </span>
+
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex items-center justify-between">
+
+                        <div>
+
+                            <h3 class="font-semibold text-lg">
+                                Colaboração Estudantil
+                            </h3>
+
+                            <p class="text-slate-400 text-sm mt-1">
+                                Fórum, monitoria e dúvidas escolares.
+                            </p>
+
+                        </div>
+
+                        <span class="text-2xl">
+                            👥
+                        </span>
+
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex items-center justify-between">
+
+                        <div>
+
+                            <h3 class="font-semibold text-lg">
+                                Engajamento Escolar
+                            </h3>
+
+                            <p class="text-slate-400 text-sm mt-1">
+                                Sistema gamificado de participação.
+                            </p>
+
+                        </div>
+
+                        <span class="text-2xl">
+                            🏆
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+<section id="features" class="py-28 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Title -->
+        <div class="text-center mb-20">
+
+            <span class="text-indigo-400 font-semibold uppercase tracking-widest">
+                Recursos
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-bold mt-4">
+                Funcionalidades do Lumina
+            </h2>
+
+            <p class="text-slate-400 text-lg mt-5 max-w-3xl mx-auto">
+                Tudo que a escola precisa para modernizar comunicação,
+                organização e integração estudantil em um único ambiente.
+            </p>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    📢
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Avisos Oficiais
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Centralização de comunicados, provas,
+                    reuniões e informações importantes.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    ❓
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Fórum Escolar
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Espaço colaborativo para dúvidas,
+                    respostas e interação estudantil.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    👥
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Monitoria
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Sistema de ajuda entre estudantes
+                    para fortalecer o aprendizado.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    📅
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Calendário Escolar
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Organização de eventos, atividades
+                    e compromissos escolares.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    🏆
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Gamificação
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Participação estudantil através de
+                    conquistas, níveis e reconhecimento.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition">
+
+                <div class="text-5xl mb-6">
+                    🔒
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Ambiente Seguro
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Plataforma organizada para melhorar
+                    comunicação e integração escolar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- About -->
+<section id="about" class="py-28 px-6 bg-[#111827] border-y border-slate-800">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+        <span class="text-indigo-400 font-semibold uppercase tracking-widest">
+            Sobre o Projeto
+        </span>
+
+        <h2 class="text-4xl md:text-5xl font-bold mt-4">
+            O que é o Lumina?
+        </h2>
+
+        <p class="text-slate-400 text-xl mt-8 leading-relaxed">
+
+            O Lumina nasceu com o objetivo de modernizar a comunicação escolar,
+            reduzir desinformação e criar um ambiente mais conectado,
+            colaborativo e organizado para estudantes, professores e coordenação.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Impact -->
+<section id="impact" class="py-28 px-6">
+
+    <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-16">
+
+            <span class="text-indigo-400 font-semibold uppercase tracking-widest">
+                Impacto
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-bold mt-4">
+                Benefícios para a escola
+            </h2>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-10">
+
+                <h3 class="text-5xl font-bold text-indigo-400">
+                    +Comunicação
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Informações centralizadas e organizadas em um único ambiente.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-10">
+
+                <h3 class="text-5xl font-bold text-indigo-400">
+                    +Colaboração
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Incentivo à ajuda entre estudantes e aprendizado coletivo.
+                </p>
+
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-3xl p-10">
+
+                <h3 class="text-5xl font-bold text-indigo-400">
+                    +Engajamento
+                </h3>
+
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Participação ativa através de recursos interativos e gamificação.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="py-28 px-6">
+
+    <div class="max-w-5xl mx-auto">
+
+        <div class="relative overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-700 rounded-[40px] p-12 md:p-20 text-center shadow-2xl">
+
+            <div class="absolute inset-0 bg-black/10"></div>
+
+            <div class="relative">
+
+                <h2 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Transformando a escola através da tecnologia.
+                </h2>
+
+                <p class="text-indigo-100 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+                    O Lumina conecta estudantes, professores e coordenação
+                    em um ambiente moderno, colaborativo e acessível.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 mt-10">
+
+                    <a href="/login"
+                       class="bg-white text-slate-900 hover:bg-slate-200 transition px-8 py-4 rounded-2xl font-bold">
+                        Acessar Plataforma
+                    </a>
+
+                    <a href="#features"
+                       class="border border-white/30 hover:bg-white/10 transition px-8 py-4 rounded-2xl font-semibold">
+                        Conhecer Recursos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-800 py-10 px-6 bg-[#0f172a]">
+
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+
+        <div class="text-center md:text-left">
+
+            <h2 class="text-2xl font-bold text-indigo-400">
+                Lumina
+            </h2>
+
+            <p class="text-slate-500 mt-2">
+                Plataforma de Integração Escolar
+            </p>
+
+        </div>
+
+        <p class="text-slate-500 text-sm text-center">
+            © 2026 Lumina. Todos os direitos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
