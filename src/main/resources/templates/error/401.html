@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>401 | Lumina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1120] text-white min-h-screen overflow-x-hidden">
+
+<!-- Background Effects -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+
+    <div class="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-indigo-500 opacity-20 blur-[140px] rounded-full"></div>
+
+    <div class="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[140px] rounded-full"></div>
+
+</div>
+
+<!-- Navbar -->
+<header class="w-full border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a href="/" class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-2xl bg-indigo-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-500/30">
+                L
+            </div>
+
+            <div>
+                <h1 class="text-2xl font-bold text-indigo-400">
+                    Lumina
+                </h1>
+
+                <p class="text-xs text-slate-500">
+                    Plataforma Escolar
+                </p>
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- Main -->
+<main class="min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16">
+
+    <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left -->
+        <div>
+
+            <span class="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 text-yellow-300 px-5 py-2 rounded-full text-sm font-medium">
+                🔐 Acesso negado
+            </span>
+
+            <h1 class="text-5xl md:text-6xl font-bold mt-8 leading-tight">
+
+                Você não tem
+                <span class="text-indigo-400">
+                    permissão de acesso
+                </span>
+
+            </h1>
+
+            <p class="text-slate-400 text-lg mt-8 leading-relaxed max-w-xl">
+
+                Para acessar essa página você precisa estar autenticado ou ter as permissões corretas dentro da plataforma Lumina.
+
+            </p>
+
+            <div class="flex flex-wrap gap-4 mt-10">
+
+                <a href="/login"
+                   class="bg-indigo-500 hover:bg-indigo-600 transition px-8 py-4 rounded-2xl font-semibold shadow-lg shadow-indigo-500/20">
+
+                    Fazer Login
+
+                </a>
+
+                <a href="/"
+                   class="border border-slate-700 hover:bg-slate-800 transition px-8 py-4 rounded-2xl font-semibold">
+
+                    Página Inicial
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+        <div>
+
+            <div class="bg-[#111827]/90 backdrop-blur border border-slate-800 rounded-3xl p-8 shadow-2xl">
+
+                <div class="text-center mb-8">
+
+                    <h2 class="text-8xl font-bold text-indigo-400">
+                        401
+                    </h2>
+
+                    <p class="text-slate-400 mt-3">
+                        Não autorizado
+                    </p>
+
+                </div>
+
+                <div class="space-y-4">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🔑 Faça login para continuar
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🛡️ Verifique suas permissões
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        📚 Acesse apenas áreas liberadas
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🚀 Volte para o início da plataforma
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

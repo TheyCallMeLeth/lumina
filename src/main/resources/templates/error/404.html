@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 | Lumina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1120] text-white min-h-screen overflow-x-hidden">
+
+<!-- Background Effects -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+
+    <div class="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-indigo-500 opacity-20 blur-[140px] rounded-full"></div>
+
+    <div class="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[140px] rounded-full"></div>
+
+</div>
+
+<!-- Navbar -->
+<header class="w-full border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a href="/dashboard" class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-2xl bg-indigo-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-500/30">
+                L
+            </div>
+
+            <div>
+                <h1 class="text-2xl font-bold text-indigo-400">
+                    Lumina
+                </h1>
+
+                <p class="text-xs text-slate-500">
+                    Plataforma Escolar
+                </p>
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- Main -->
+<main class="min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16">
+
+    <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left -->
+        <div>
+
+            <span class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-300 px-5 py-2 rounded-full text-sm font-medium">
+                ⚠️ Erro 404
+            </span>
+
+            <h1 class="text-5xl md:text-6xl font-bold mt-8 leading-tight">
+
+                Página
+                <span class="text-indigo-400">
+                    não encontrada
+                </span>
+
+            </h1>
+
+            <p class="text-slate-400 text-lg mt-8 leading-relaxed max-w-xl">
+
+                O recurso que você tentou acessar não existe,
+                foi removido ou o link está incorreto.
+
+            </p>
+
+            <div class="flex flex-wrap gap-4 mt-10">
+
+                <a href="/dashboard"
+                   class="bg-indigo-500 hover:bg-indigo-600 transition px-8 py-4 rounded-2xl font-semibold shadow-lg shadow-indigo-500/20">
+
+                    Voltar ao Dashboard
+
+                </a>
+
+                <a href="/"
+                   class="border border-slate-700 hover:bg-slate-800 transition px-8 py-4 rounded-2xl font-semibold">
+
+                    Página Inicial
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+        <div>
+
+            <div class="bg-[#111827]/90 backdrop-blur border border-slate-800 rounded-3xl p-8 shadow-2xl">
+
+                <div class="text-center mb-8">
+
+                    <h2 class="text-8xl font-bold text-indigo-400">
+                        404
+                    </h2>
+
+                    <p class="text-slate-400 mt-3">
+                        Recurso não encontrado
+                    </p>
+
+                </div>
+
+                <div class="space-y-4">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🔍 Verifique a URL digitada
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🏠 Volte para o dashboard
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        📚 Use os menus da plataforma
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        🚀 Continue explorando o Lumina
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
